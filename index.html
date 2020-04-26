@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid system cards</title>
+    <meta name="Description" content="An experiment for creating a responsive card grid. This page offers also a night mode and got 100/100 on Lighthouse audit.">
+    <title>Simple card grid</title>
     <style>
         body {
             margin: 2rem 0 2rem 0;
@@ -37,6 +38,7 @@
         }
     </style>
     <link id="theme" rel="stylesheet" type="text/css" href="light-theme.css" defer />
+    <link rel="canonical" href="https://davide-cards.surge.sh"/>
 </head>
 <body>
     <div class="mode-choice">
@@ -93,6 +95,18 @@
             localStorage.setItem('theme',themeStylesheet.href)  
         })
         })
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/", 
+          "@type": "HowTo", 
+          "name": "Simple card grid",
+          "description": "Create a cards grid with night mode",
+          "step": {
+            "@type": "HowToStep",
+            "text": "Check the HTML code for reproducing this cards grid."
+          }    
+        }
     </script>
 </body>
 </html>
