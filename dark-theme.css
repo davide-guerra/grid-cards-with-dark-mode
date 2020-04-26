@@ -1,0 +1,9 @@
+body {
+    background: #444;
+}
+svg#theme-toggle {
+    fill: #ececec;
+}
+svg#theme-toggle:hover {
+    fill: #fff;
+}
