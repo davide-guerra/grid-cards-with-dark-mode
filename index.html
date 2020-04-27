@@ -6,15 +6,28 @@
     <meta name="Description" content="An experiment for creating a responsive card grid. This page offers also a night mode and got 100/100 on Lighthouse audit.">
     <title>Simple card grid</title>
     <style>
-        #svg-content {
-            display: inline-block;
-            cursor: pointer;
-        }
+        /* 
+        Check https://jsfiddle.net/kue2x6Lw/3/ for align bottom in card using flex. This example has also random images in cards.
+        */
+        /* Main page */
         main {
             width: 100%;
             max-width: 1200px;
             margin: 2rem auto;
         }
+        body {
+            font-family: monospace;
+        }
+        /* Toggle switch div */
+        #svg-content {
+            display: inline-block;
+            cursor: pointer;
+        }
+        .mode-choice {
+            margin-bottom: 2rem;
+            text-align: end;
+        }
+        /* Grid settings */
         .responsive-grid {
             display: grid;
             -ms-grid-columns: (minmax(300px,1fr)) [auto-fill];
@@ -22,16 +35,39 @@
             grid-auto-rows: 1fr;
             grid-gap: 50px;
         }
+        /* Single card settings */
         .single-card {
             background: #fff;
             color:black;
             border-radius: 12px;
             padding: 1rem;
             box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.18);
+            display: flex;
+	        flex-direction: column;
+        } 
+        .image img {
+            width: 100%;
+            max-width: 100%;
+            height: 12rem;
+            object-fit: cover;
         }
-        .mode-choice {
-            margin-bottom: 2rem;
-            text-align: end;
+        .title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 1em;
+            font-size: 1.2em;
+            /* font-family: sans-serif; */
+            margin-bottom: 1em;
+        }
+        .excerpt {
+            margin-bottom: 1em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .read-more {
+            margin-top:auto;
         }
     </style>
     <link id="theme" rel="stylesheet" type="text/css" href="light-theme.css" defer />
@@ -52,21 +88,146 @@
             </div>
         </div>
         <div class="responsive-grid">
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. </div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet </div>
-            <div class="single-card">Lorem, ipsum dolor sit amet</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
-            <div class="single-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat rerum adipisci est officiis magni reiciendis nemo, at, minus illum quam suscipit cum voluptatibus quidem similique explicabo. Dicta harum quae temporibus.</div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
+            <div class="single-card">
+                <div class="image">
+                    <img class="fake-img" src="https://source.unsplash.com/random/?sig=">
+                </div>
+                <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </div>
+                <div class="excerpt">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi error assumenda aut amet veniam pariatur officiis commodi distinctio itaque odit. Optio illum incidunt cumque quisquam itaque quis ducimus corporis quae?
+                </div>
+                <div class="read-more">
+                    Read more
+                </div>
+            </div>
         </div>
     </main>
     <script>
@@ -107,6 +268,13 @@
             "text": "Check the HTML code for reproducing this cards grid."
           }    
         }
+    </script>
+    <script>
+        const fakeImages = document.querySelectorAll(".fake-img");
+	for (var i = 0; i < fakeImages.length; i++) {
+  randomNbr = Math.floor(Math.random() * 100000) + 1;
+  fakeImages[i].src += randomNbr;
+	}
     </script>
 </body>
 </html>
